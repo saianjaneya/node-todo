@@ -11,7 +11,7 @@ export function authenticateToken(req, res, next) {
 
   jwt.verify(token, APP_ENV.JWT_SECRET, (err, user) => {
     if (err) {
-      return res.status(403).json({ error: "Invalid token" });
+      return res.status(403).json({ error: "Invalid token!" });
     }
     req.user = user;
     next();
