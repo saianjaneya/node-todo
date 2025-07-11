@@ -3,8 +3,10 @@ import express from "express";
 import { usersRouter } from "./routes/users.js";
 import { todosRouter } from "./routes/todos.js";
 import { APP_ENV } from "./env.js";
+import cors from "cors";
 
 const app = express();
+app.use(cors());
 const PORT = APP_ENV.PORT || 3000;
 
 // Middleware
