@@ -17,3 +17,6 @@ export function authenticateToken(req, res, next) {
     next();
   });
 }
+// {"authorization": "Bearer ashjdaydguyaHJJHHJFAHJDADJHafsnanUAIUWEIUjnksmnasd"}
+// "Bearer ashjdaydguyaHJJHHJFAHJDADJHafsnanUAIUWEIUjnksmnasd" - string
+// ["Bearer", "ashjdaydguyaHJJHHJFAHJDADJHafsnanUAIUWEIUjnksmnasd"] - array

@@ -2,15 +2,17 @@ import express from "express";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { dbPool } from "../db.js";
+import { APP_ENV } from "../env.js";
 
 export const usersRouter = express.Router();
 
 // Register user
 usersRouter.post("/register", async (req, res) => {
   try {
-    const { email, password } = req.body;
+    const { email, password } = req.body; // Destructuring
 
     if (!email || !password) {
+      // falsy values = "", null, undefined, 0 and false
       return res.status(400).json({ error: "Email and password required" });
     }
 
@@ -72,7 +74,7 @@ usersRouter.post("/login", async (req, res) => {
     }
 
     // Generate token
-    const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET);
+    const token = jwt.sign({ userId: user.id }, APP_ENV.JWT_SECRET);
 
     res.json({
       message: "Login successful",

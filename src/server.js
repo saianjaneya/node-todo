@@ -6,10 +6,9 @@ import { APP_ENV } from "./env.js";
 import cors from "cors";
 
 const app = express();
-app.use(cors());
-const PORT = APP_ENV.PORT || 3000;
 
 // Middleware
+app.use(cors());
 app.use(express.json());
 
 // Routes
@@ -22,6 +21,7 @@ app.get("/", (req, res) => {
 });
 
 // Start server
+const PORT = APP_ENV.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
